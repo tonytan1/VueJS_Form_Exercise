@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <form>
+        <form v-if="!isSubmitted">
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                     <!-- Exercise 1 -->
@@ -36,18 +36,19 @@
                     <!-- which still holds the First Name and Last Name Input Field -->
                 </div>
             </div>
-        </form>
-        <hr>
-        <!-- Exercise 2 -->
-                    <!-- Only display the Form if it has NOT been submitted -->
-                    <!-- Display the Data Summary ONCE the Form HAS been submitted -->
+            <hr>
+            <!-- Exercise 2 -->
+            <!-- Only display the Form if it has NOT been submitted -->
+            <!-- Display the Data Summary ONCE the Form HAS been submitted -->
     
-        <div class="row">
+            <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                     <button class="btn btn-primary" @click.prevent="submitted">Submit!
                     </button>
                 </div>
             </div>
+        </form>
+    
         <hr>
         <div class="row" v-if="isSubmitted">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
@@ -59,7 +60,7 @@
                         <p>Full Name: {{userData.fullName}}</p>
                         <p>Mail: {{ userData.email }}</p>
                         <p>Password: {{ userData.password }}</p>
-                        <p>Store in Database?:  {{ storeData }}</p>
+                        <p>Store in Database?: {{ storeData }}</p>
                     </div>
                 </div>
             </div>
